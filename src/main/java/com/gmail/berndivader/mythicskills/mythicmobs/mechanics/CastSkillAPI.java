@@ -38,7 +38,6 @@ INoTargetSkill {
 			return;
 		};
 		bl1=mlc.getBoolean("uml",false);
-		System.err.println(sk.getType());
 	}
 
 	@Override
@@ -58,18 +57,15 @@ INoTargetSkill {
 	
 	boolean castSkill(SkillMetadata data,AbstractEntity e1,AbstractLocation l1) {
 		ActiveMob am;
-		int i1=0;
+		int i1=1;
 		if (bl1&&(am=(ActiveMob)data.getCaster())!=null) i1=am.getLevel();
-		switch(sk.getType().toLowerCase()) {
-		case "dynamic":
-			SkillShot ss=(SkillShot)sk;
-			if (ss.cast((LivingEntity)data.getCaster().getEntity().getBukkitEntity(),i1)) {
-				System.err.println("true");
-			};
-			break;
-		default:
-			break;
-		}
+		SkillShot ss=(SkillShot)sk;
+		System.err.println("loaded skill: "+sk.getName());
+		if (ss.cast((LivingEntity)data.getCaster().getEntity().getBukkitEntity(),i1)) {
+			System.err.println("executed: true");
+		} else {
+			System.err.println("executed: false");
+		};
 		return true;
 	}
 
