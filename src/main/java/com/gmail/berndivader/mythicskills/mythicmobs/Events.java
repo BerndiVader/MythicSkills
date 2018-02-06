@@ -5,11 +5,14 @@ import org.bukkit.event.Listener;
 import org.bukkit.metadata.FixedMetadataValue;
 
 import com.gmail.berndivader.mythicskills.MythicSkills;
+import com.gmail.berndivader.mythicskills.mythicmobs.conditions.LastSapiDamageCause;
 import com.gmail.berndivader.mythicskills.mythicmobs.mechanics.CastSkillAPI;
 import com.gmail.berndivader.mythicskills.mythicmobs.mechanics.DamageSkillAPI;
 
+import io.lumine.xikage.mythicmobs.api.bukkit.events.MythicConditionLoadEvent;
 import io.lumine.xikage.mythicmobs.api.bukkit.events.MythicMechanicLoadEvent;
 import io.lumine.xikage.mythicmobs.api.bukkit.events.MythicMobSpawnEvent;
+import io.lumine.xikage.mythicmobs.skills.SkillCondition;
 import io.lumine.xikage.mythicmobs.skills.SkillMechanic;
 
 public class Events 
@@ -37,10 +40,21 @@ Listener {
 	}
 	
 	@EventHandler
+	public void onMythicMobsLoadConditions(MythicConditionLoadEvent e) {
+		String s1=e.getConditionName().toLowerCase();
+		switch(s1) {
+		case "lastsapidamagecause":
+			SkillCondition c=new LastSapiDamageCause(e.getConfig().getLine(),e.getConfig());
+			e.register(c);
+			break;
+		}
+	}
+	
+	@EventHandler
 	public void onMythicMobsSpawnEvent(MythicMobSpawnEvent e) {
-		String s1=e.getMobType().getConfig().getString("DamageType");
+		String s1=e.getMobType().getConfig().getString("SapiDamageModifier");
 		if (s1!=null) {
-			e.getEntity().setMetadata(MythicSkills.str_DamageTypeIndicator,new FixedMetadataValue(MythicSkills.getPlugin(),s1));
+			e.getEntity().setMetadata(MythicSkills.str_DamageModifierTag,new FixedMetadataValue(MythicSkills.getPlugin(),s1));
 		}
 	}
 }

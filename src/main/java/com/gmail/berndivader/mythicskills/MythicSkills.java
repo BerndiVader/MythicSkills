@@ -17,9 +17,10 @@ JavaPlugin {
 	static MythicSkills plugin;
 	public static PluginManager pluginmanager;
 	public static Logger logger;
-	public static String str_DamageTypeIndicator="mm-skillapi-damagetype";
+	public static String str_DamageModifierTag="mm-skillapi-damagemodifier";
 	public static MythicMobs mythicmobs;
 	public static MobManager mobmanager;
+	public static String str_LastSapiDamageCause="mm-skillapi-lastdamagecause";
 	
 	@Override
 	public void onEnable() {

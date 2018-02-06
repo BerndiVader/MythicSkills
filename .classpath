@@ -5,9 +5,9 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8/"/>
 	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
 	<classpathentry kind="lib" path="lib/MythicMobs-4.3.2.jar"/>
-	<classpathentry kind="lib" path="lib/SkillAPI.jar" sourcepath="X:/maven/SkillAPI_source_from_cfr"/>
 	<classpathentry kind="lib" path="lib/spigot-1.10.2.jar"/>
 	<classpathentry kind="lib" path="lib/spigot-1.11.2.jar"/>
 	<classpathentry kind="lib" path="lib/spigot-1.12.2.jar"/>
+	<classpathentry kind="lib" path="lib/SkillAPI.jar" sourcepath="X:/maven/SkillAPI_source_from_cfr"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
