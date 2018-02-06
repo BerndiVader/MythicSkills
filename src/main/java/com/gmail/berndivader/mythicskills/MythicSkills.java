@@ -5,8 +5,11 @@ import java.util.logging.Logger;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.gmail.berndivader.mythicskills.mythicmobs.MythicMobsSkill;
-import com.gmail.berndivader.mythicskills.skillapi.SkillAPISkills;
+import com.gmail.berndivader.mythicskills.mythicmobs.MythicMobsHandler;
+import com.gmail.berndivader.mythicskills.skillapi.SkillAPIHandler;
+
+import io.lumine.xikage.mythicmobs.MythicMobs;
+import io.lumine.xikage.mythicmobs.mobs.MobManager;
 
 public class MythicSkills 
 extends
@@ -14,6 +17,9 @@ JavaPlugin {
 	static MythicSkills plugin;
 	public static PluginManager pluginmanager;
 	public static Logger logger;
+	public static String str_DamageTypeIndicator="mm-skillapi-damagetype";
+	public static MythicMobs mythicmobs;
+	public static MobManager mobmanager;
 	
 	@Override
 	public void onEnable() {
@@ -25,8 +31,10 @@ JavaPlugin {
 		if ((bl1=pluginmanager.getPlugin("MythicMobs")==null)||(bl1=pluginmanager.getPlugin("SkillAPI")==null)) {
 			this.onDisable();
 		} else {
-			new MythicMobsSkill();
-			new SkillAPISkills();
+			mythicmobs=MythicMobs.inst();
+			mobmanager=mythicmobs.getMobManager();
+			new MythicMobsHandler();
+			new SkillAPIHandler();
 		}
 	}
 	
