@@ -14,6 +14,12 @@
 + skill: name of the skillapi skill.
 + damage: amount of damage.
 
+```yaml 
+- sapidamage{classification=[STRING];damage=[VALUE]} @ENTITY_TARGET
+```
++ classification=class=c: name of the sapi classification.
++ damage: amount of damage.
+
 
 ## MythicMobs conditions:
 

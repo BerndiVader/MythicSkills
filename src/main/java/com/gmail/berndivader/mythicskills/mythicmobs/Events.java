@@ -8,6 +8,7 @@ import com.gmail.berndivader.mythicskills.MythicSkills;
 import com.gmail.berndivader.mythicskills.mythicmobs.conditions.LastSapiDamageCause;
 import com.gmail.berndivader.mythicskills.mythicmobs.mechanics.CastSkillAPI;
 import com.gmail.berndivader.mythicskills.mythicmobs.mechanics.DamageSkillAPI;
+import com.gmail.berndivader.mythicskills.mythicmobs.mechanics.SapiDamage;
 
 import io.lumine.xikage.mythicmobs.api.bukkit.events.MythicConditionLoadEvent;
 import io.lumine.xikage.mythicmobs.api.bukkit.events.MythicMechanicLoadEvent;
@@ -35,6 +36,9 @@ Listener {
 		case "damageskillapi":
 			skill=new DamageSkillAPI(e.getContainer().getConfigLine(),e.getConfig());
 			e.register(skill);
+			break;
+		case "sapidamage":
+			e.register(new SapiDamage(e.getContainer().getConfigLine(),e.getConfig()));
 			break;
 		}
 	}
