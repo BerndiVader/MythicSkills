@@ -5,6 +5,7 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
+import com.rit.sucy.version.VersionManager;
 import com.sucy.skill.api.event.SkillDamageEvent;
 import com.sucy.skill.dynamic.TempEntity;
 import com.sucy.skill.hook.NoCheatHook;
@@ -15,7 +16,6 @@ import io.lumine.xikage.mythicmobs.io.MythicLineConfig;
 import io.lumine.xikage.mythicmobs.skills.ITargetedEntitySkill;
 import io.lumine.xikage.mythicmobs.skills.SkillMechanic;
 import io.lumine.xikage.mythicmobs.skills.SkillMetadata;
-import io.lumine.xikage.mythicmobs.skills.SkillString;
 
 public class SapiDamage 
 extends
@@ -28,8 +28,7 @@ ITargetedEntitySkill {
 	public SapiDamage(String skill, MythicLineConfig mlc) {
 		super(skill, mlc);
 		ASYNC_SAFE=false;
-		if ((s1=mlc.getString(new String[] {"classification","class","c"},"default"))==null) return;
-		s1=SkillString.parseMessageSpecialChars(s1.substring(1,s1.length()-1));
+		s1=mlc.getString(new String[] {"classification","class","c"},"default");
 		d1=mlc.getDouble("damage",1d);
 	}
 
@@ -49,7 +48,7 @@ ITargetedEntitySkill {
                 t.damage(event.getDamage(),c);
                 if (PluginChecker.isNoCheatActive()) NoCheatHook.unexempt(p);
             } else {
-            	t.damage(event.getDamage(),c);
+            	VersionManager.damage(t,c,event.getDamage());
             }
         }
         return true;

@@ -23,6 +23,7 @@ repositories {
 dependencies {
 	implementation files('./lib/MythicMobs-4.3.2.jar')
 	implementation files('./lib/SkillAPI.jar')
+	implementation files('./lib/MCCore.jar')
     implementation files('./lib/spigot-1.12.2.jar')
     implementation files('./lib/spigot-1.11.2.jar')
     implementation files('./lib/spigot-1.10.2.jar')
