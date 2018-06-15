@@ -44,7 +44,7 @@ ITargetedEntitySkill {
 		LivingEntity t=(LivingEntity)e1.getBukkitEntity();
 		LivingEntity c=(LivingEntity)data.getCaster().getEntity().getBukkitEntity();
         if (t instanceof TempEntity) return false;
-        SkillDamageEvent event = new SkillDamageEvent(this.bl1?(LivingEntity)data.getCaster().getEntity().getBukkitEntity():null,t,this.d1,this.s1);
+        SkillDamageEvent event = new SkillDamageEvent(!this.bl1?(LivingEntity)data.getCaster().getEntity().getBukkitEntity():null,t,this.d1,this.s1);
         Bukkit.getPluginManager().callEvent((Event)event);
         if (!event.isCancelled()) {
             if (c instanceof Player) {
@@ -57,7 +57,7 @@ ITargetedEntitySkill {
                 if (PluginChecker.isNoCheatActive()) NoCheatHook.unexempt(p);
             } else {
                 NMSUtils.setField(f,Skill.class,null,true);
-            	VersionManager.damage(t,this.bl1?c:null,event.getDamage());
+            	VersionManager.damage(t,!this.bl1?c:null,event.getDamage());
                 NMSUtils.setField(f,Skill.class,null,false);
             }
         }
