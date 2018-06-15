@@ -15,10 +15,11 @@
 + damage: amount of damage.
 
 ```yaml 
-- sapidamage{classification=[STRING];damage=[VALUE]} @ENTITY_TARGET
+- sapidamage{classification=[STRING];damage=[VALUE];noattacker=[BOOL]} @ENTITY_TARGET
 ```
 + classification=class=c: name of the sapi classification.
 + damage: amount of damage.
++ noattacker: if no attacker entity should be used. default is false.
 
 
 ## MythicMobs conditions:

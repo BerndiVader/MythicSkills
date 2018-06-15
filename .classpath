@@ -8,7 +8,7 @@
 	<classpathentry kind="lib" path="lib/spigot-1.10.2.jar"/>
 	<classpathentry kind="lib" path="lib/spigot-1.11.2.jar"/>
 	<classpathentry kind="lib" path="lib/spigot-1.12.2.jar"/>
-	<classpathentry kind="lib" path="lib/SkillAPI.jar" sourcepath="X:/maven/SkillAPI_source_from_cfr"/>
+	<classpathentry kind="lib" path="lib/SkillAPI.jar" sourcepath="c:/maven/SkillAPI_source_from_cfr"/>
 	<classpathentry kind="lib" path="lib/MCCore.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
