@@ -27,6 +27,7 @@ dependencies {
     implementation files('./lib/spigot-1.12.2.jar')
     implementation files('./lib/spigot-1.11.2.jar')
     implementation files('./lib/spigot-1.10.2.jar')
+    implementation files('./lib/MythicMobsExtension-1.241-SNAPSHOT.jar')
 }
 
 processResources {

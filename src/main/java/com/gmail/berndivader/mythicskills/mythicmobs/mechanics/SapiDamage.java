@@ -5,8 +5,10 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
+import com.gmail.berndivader.mythicmobsext.NMS.NMSUtils;
 import com.rit.sucy.version.VersionManager;
 import com.sucy.skill.api.event.SkillDamageEvent;
+import com.sucy.skill.api.skills.Skill;
 import com.sucy.skill.dynamic.TempEntity;
 import com.sucy.skill.hook.NoCheatHook;
 import com.sucy.skill.hook.PluginChecker;
@@ -25,6 +27,8 @@ ITargetedEntitySkill {
 	double d1;
 	String s1;
 	boolean bl1;
+	Skill sk;
+	static String f="skillDamage";
 
 	public SapiDamage(String skill, MythicLineConfig mlc) {
 		super(skill, mlc);
@@ -46,11 +50,15 @@ ITargetedEntitySkill {
             if (c instanceof Player) {
                 Player p=(Player)c;
                 if (PluginChecker.isNoCheatActive()) NoCheatHook.exempt(p);
+                NMSUtils.setField(f,Skill.class,null,true);
                 t.setNoDamageTicks(0);
                 t.damage(event.getDamage(),c);
+                NMSUtils.setField(f,Skill.class,null,false);
                 if (PluginChecker.isNoCheatActive()) NoCheatHook.unexempt(p);
             } else {
+                NMSUtils.setField(f,Skill.class,null,true);
             	VersionManager.damage(t,this.bl1?c:null,event.getDamage());
+                NMSUtils.setField(f,Skill.class,null,false);
             }
         }
         return true;
