@@ -47,19 +47,17 @@ ITargetedEntitySkill {
         SkillDamageEvent event = new SkillDamageEvent(!this.bl1?(LivingEntity)data.getCaster().getEntity().getBukkitEntity():null,t,this.d1,this.s1);
         Bukkit.getPluginManager().callEvent((Event)event);
         if (!event.isCancelled()) {
+            NMSUtils.setField(f,Skill.class,null,true);
             if (c instanceof Player) {
                 Player p=(Player)c;
                 if (PluginChecker.isNoCheatActive()) NoCheatHook.exempt(p);
-                NMSUtils.setField(f,Skill.class,null,true);
                 t.setNoDamageTicks(0);
                 t.damage(event.getDamage(),c);
-                NMSUtils.setField(f,Skill.class,null,false);
                 if (PluginChecker.isNoCheatActive()) NoCheatHook.unexempt(p);
             } else {
-                NMSUtils.setField(f,Skill.class,null,true);
             	VersionManager.damage(t,!this.bl1?c:null,event.getDamage());
-                NMSUtils.setField(f,Skill.class,null,false);
             }
+            NMSUtils.setField(f,Skill.class,null,false);
         }
         return true;
 	}

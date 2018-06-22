@@ -26,6 +26,9 @@ IEntityCondition {
 		String cause=null;
 		Entity entity=ae.getBukkitEntity();
 		if (entity.hasMetadata(MythicSkills.str_LastSapiDamageCause)) cause=entity.getMetadata(MythicSkills.str_LastSapiDamageCause).get(0).asString().toUpperCase();
+		if (cause!=null) {
+			
+		}
 		if (cause!=null&&!causes[0].equals("ANY")) {
 			for(String s1:causes) {
 				if (s1.equals(cause)) {
