@@ -44,7 +44,7 @@ ITargetedEntitySkill {
 		LivingEntity t=(LivingEntity)e1.getBukkitEntity();
 		LivingEntity c=(LivingEntity)data.getCaster().getEntity().getBukkitEntity();
         if (t instanceof TempEntity) return false;
-        SkillDamageEvent event = new SkillDamageEvent(!this.bl1?(LivingEntity)data.getCaster().getEntity().getBukkitEntity():null,t,this.d1,this.s1);
+        SkillDamageEvent event = new SkillDamageEvent(null,!this.bl1?(LivingEntity)data.getCaster().getEntity().getBukkitEntity():null,t,this.d1,this.s1);
         Bukkit.getPluginManager().callEvent((Event)event);
         if (!event.isCancelled()) {
             NMSUtils.setField(f,Skill.class,null,true);

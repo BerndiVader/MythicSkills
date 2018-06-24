@@ -1,4 +1,4 @@
-# MythicSkills v0.1
+# MythicSkills v0.2
 
 ## MythicMobs mechanics:
 
