@@ -40,7 +40,7 @@ ITargetedEntitySkill {
 
 	@Override
 	public boolean castAtEntity(SkillMetadata data, AbstractEntity e1) {
-		if (!e1.isLiving()) return false;
+		if (!e1.isLiving()||Skill.isSkillDamage()) return false;
 		LivingEntity t=(LivingEntity)e1.getBukkitEntity();
 		LivingEntity c=(LivingEntity)data.getCaster().getEntity().getBukkitEntity();
         if (t instanceof TempEntity) return false;

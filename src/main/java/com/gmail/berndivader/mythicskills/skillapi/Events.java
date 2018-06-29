@@ -33,8 +33,8 @@ Listener {
     			if(s1.toUpperCase().startsWith("SAPICLASSIFIER")) {
     				String[]arr1=s1.toUpperCase().split(" ");
     				if(s3.equals(arr1[1])) {
-    					int i1=Integer.parseInt(arr1[2]);
-    					e.setDamage(e.getDamage()*i1);
+    					double d1=Double.parseDouble(arr1[2]);
+    					e.setDamage(e.getDamage()*d1);
     				}
     			}
     		}
