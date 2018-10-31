@@ -1,5 +1,5 @@
 name: MythicSkills
 main: com.gmail.berndivader.mythicskills.MythicSkills
-version: 0.1-SNAPSHOT
+version: 0.2-SNAPSHOT
 softdepend: []
 depend: [MythicMobs, SkillAPI]

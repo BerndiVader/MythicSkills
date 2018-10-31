@@ -29,3 +29,30 @@
 ```
 + cause: the classification of the skill
 + action: what to do?
+
+
+## Sapi CustomEffectMechanics:
+
+### soundeffect
+
++ sound: the sound name to play
++ volume-base: volume
++ pitch-base: pitch
++ debug: true/false(default) if true message posted in console at execution of mechanic.
+
+```yaml
+soundeffectba: 
+  type: 'mechanic'
+  indicator: '3D'
+  data: 
+    icon-key: ''
+    counts: 'True'
+    sound: 'entity.wither.shoot'
+    volume-base: '1.5'
+    volume-scale: '0'
+    pitch-base: '2'
+    pitch-scale: '0'
+    debug: 'false'
+    indicator: '2D'
+  children:  {}
+```

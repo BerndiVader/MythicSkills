@@ -19,7 +19,7 @@ SkillMechanic
 implements
 ITargetedEntitySkill {
 	Skill sk;
-	double d1;
+	double d1,d2;
 
 	public DamageSkillAPI(String skill, MythicLineConfig mlc) {
 		super(skill, mlc);
