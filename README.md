@@ -56,3 +56,21 @@ soundeffectba:
     indicator: '2D'
   children:  {}
 ```
+
+### mythicskill
+
++ skill: the mythicmobs skill name
++ debug: true/false(default) for debug messages.
+
+```yaml
+mythicskill-b: 
+  type: 'mechanic'
+  indicator: '3D'
+  data: 
+    icon-key: ''
+    counts: 'True'
+    skill: 'some_skill_blubb'
+    debug: 'false'
+    indicator: '2D'
+  children:  {}
+```

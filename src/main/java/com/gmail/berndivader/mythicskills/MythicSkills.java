@@ -8,6 +8,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import com.gmail.berndivader.mythicskills.mythicmobs.MythicMobsHandler;
 import com.gmail.berndivader.mythicskills.skillapi.SkillAPIHandler;
+import com.gmail.berndivader.mythicskills.skillapi.mechanics.CastMythicMechanicMechanic;
 import com.gmail.berndivader.mythicskills.skillapi.mechanics.SoundEffectMechanic;
 import com.google.common.collect.ImmutableList;
 import com.sucy.skill.SkillAPI;
@@ -70,7 +71,8 @@ SkillPlugin
     @Override
     public List<CustomEffectComponent> getComponents() {
         return ImmutableList.of(
-        		new SoundEffectMechanic()
+        		new SoundEffectMechanic(),
+        		new CastMythicMechanicMechanic()
         );
     }	
 }

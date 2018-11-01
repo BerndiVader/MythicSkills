@@ -45,6 +45,7 @@ CustomEffectComponent
 				players=target.getWorld().getPlayers();
 			}
 			if(players.size()==0) continue;
+			if(debug) System.err.println(target.getType());
 			playSoundAtPlayer(type,volume,pitch,target.getLocation(),players);
 		}
 		players=null;
@@ -69,32 +70,10 @@ CustomEffectComponent
 	@Override
 	public List<EditorOption> getOptions() {
 		return ImmutableList.of(
-				EditorOption.text(
-						"sound",
-						"Sound",
-						"Name of the sound to play.",
-						"entity.enderdragon.growl"
-				),
-				EditorOption.number(
-						"volume",
-						"Volume", 
-						"Volume",
-						1.0f,
-						0f
-				),
-				EditorOption.number(
-						"pitch",
-						"Pitch", 
-						"Pitch",
-						1.0f,
-						0f
-				),
-				EditorOption.text(
-						"debug",
-						"Debug",
-						"Debug",
-						"false"
-				)
+				EditorOption.text(TYPE,"Sound","Name of the sound to play.","entity.enderdragon.growl"),
+				EditorOption.number(VOLUME,"Volume","Set the volume/sphere of the sound is playes/heared.",1.0f,0f),
+				EditorOption.number(PITCH,"Pitch","Pitch",1.0f,0f),
+				EditorOption.text(DEBUG,"Debug","Debug","false")
 		);
 	}
 
