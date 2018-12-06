@@ -1,4 +1,4 @@
-# MythicSkills v0.2
+# MythicSkills v0.3
 
 ## MythicMobs mechanics:
 
@@ -28,6 +28,49 @@
 - lastsapidamagecause{cause=[SAPICLASSIFICATION]||[CLASSIFICATIONLIST];action=[BOOL]||[CAST]||[CASTINSTEAD]}
 ```
 + cause: the classification of the skill
++ action: what to do?
+
+```yaml 
+- sapiclass{classes=[SAPICLASSNAMNE];action=[BOOL]||[CAST]||[CASTINSTEAD]}
+```
++ classes=class=c: the classname (casesensitive) an array like: "1stclass,2ndclass,3rdclass" or "ANY" if player just requires to be in class.
++ action: what to do?
+
+```yaml 
+- sapiskill{skill="[SINGLE]||[LIST]";action=[BOOL]||[CAST]||[CASTINSTEAD]}
+```
++ skill=skills: a SkillAPI skill as single entry or as list.
++ action: what to do?
+
+```yaml 
+- sapiskilllevel{skill="[SINGLE]||[LIST]";level=[RANGEDNUMBER];action=[BOOL]||[CAST]||[CASTINSTEAD]}
+```
++ skill=skills: a SkillAPI skill as single entry or as list.
++ level: a ranged number like "1to2" or "<5" etc..
++ action: what to do?
+
+```yaml 
+- sapicanprofess{class="[SINGLE]||[LIST]";action=[BOOL]||[CAST]||[CASTINSTEAD]}
+```
++ class=classes: a SkillAPI class as single entry or as list.
++ action: what to do?
+
+```yaml 
+- sapiattribute{attribute="[SINGLE]||[LIST]";action=[BOOL]||[CAST]||[CASTINSTEAD]}
+```
++ attribute=attributes: a SkillAPI attribute as single entry or as list
++ action: what to do?
+
+```yaml 
+- sapiattributepoints{points=[RANGEDVALUE];action=[BOOL]||[CAST]||[CASTINSTEAD]}
+```
++ points: a ranged value like "2to10" or ">0"
++ action: what to do?
+
+```yaml 
+- sapimana{value=[RANGEDNUMBER];action=[BOOL]||[CAST]||[CASTINSTEAD]}
+```
++ value: a ranged number like "1to2" or "<5" etc..
 + action: what to do?
 
 

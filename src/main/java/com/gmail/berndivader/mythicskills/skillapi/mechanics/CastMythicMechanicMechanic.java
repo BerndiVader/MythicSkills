@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import com.gmail.berndivader.mythicskills.MythicSkills;
 import com.google.common.collect.ImmutableList;
@@ -30,6 +31,8 @@ CustomEffectComponent
 {
 	static String SKILLNAME="skill",DEBUG="debug";
 	Optional<Skill>skill=Optional.empty();
+	String str_skill;
+	boolean debug;
 	
 	@Override
 	public String getKey() {
@@ -38,14 +41,10 @@ CustomEffectComponent
 	
 	@Override
 	public boolean execute(LivingEntity caster, int power, List<LivingEntity>targets) {
-		String str_skill=getSettings().getString(SKILLNAME);
-        boolean debug=getSettings().getBool(DEBUG, false);
-		
+	
         if(!skill.isPresent()) {
-        	if(!(skill=MythicSkills.mythicmobs.getSkillManager().getSkill(str_skill)).isPresent()) {
-    			System.err.println("Skill "+SKILLNAME+" is not present!");
-    			return false;
-        	};
+   			System.err.println("Skill "+str_skill+" is not present!");
+   			return false;
         }
 		
 		if(debug) System.err.println("Executing... "+SKILLNAME+":"+str_skill);
@@ -92,8 +91,14 @@ CustomEffectComponent
 	@Override
 	public void load(DynamicSkill dynamicSkill, DataSection dataSection) {
 		super.load(dynamicSkill, dataSection);
+		new BukkitRunnable() {
+			@Override
+			public void run() {
+				skill=MythicSkills.mythicmobs.getSkillManager().getSkill(settings.getString(SKILLNAME));
+		        debug=getSettings().getBool(DEBUG, false);
+	    		str_skill=getSettings().getString(SKILLNAME);
+			}
+		}.runTask(MythicSkills.getPlugin());
 	}
-	
-	
 
 }

@@ -8,7 +8,9 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
 import com.google.common.collect.ImmutableList;
+import com.rit.sucy.config.parse.DataSection;
 import com.sucy.skill.dynamic.ComponentType;
+import com.sucy.skill.dynamic.DynamicSkill;
 import com.sucy.skill.dynamic.custom.CustomEffectComponent;
 import com.sucy.skill.dynamic.custom.EditorOption;
 
@@ -20,6 +22,9 @@ CustomEffectComponent
 {
 	static String TYPE="sound",VOLUME="volume",PITCH="pitch",DEBUG="debug";
 	
+	String type;
+	boolean debug;
+	
 	@Override
 	public String getKey() {
 		return "soundeffect";
@@ -27,15 +32,13 @@ CustomEffectComponent
 	
 	@Override
 	public boolean execute(LivingEntity caster, int power, List<LivingEntity>targets) {
-		String type=getSettings().getString(TYPE,"entity.enderdragon.growl");
+		
         float volume=(float)this.parseValues(caster,VOLUME,power,0.0);
         float pitch=(float)this.parseValues(caster,PITCH,power,0.0);
-        boolean debug=getSettings().getBool(DEBUG, false);
-		
 		if(debug) System.err.println(type+":"+volume+":"+pitch);
 		
 		int size=targets.size();
-		String world_name="";
+		String world_name=new String();
 		List<Player>players=new ArrayList<>();
 		for(int i2=0;i2<size;i2++) {
 			LivingEntity target=targets.get(i2);
@@ -80,6 +83,13 @@ CustomEffectComponent
 	@Override
 	public ComponentType getType() {
 		return ComponentType.MECHANIC;
+	}
+	
+	@Override
+	public void load(DynamicSkill dynamicSkill, DataSection dataSection) {
+		super.load(dynamicSkill, dataSection);
+		type=settings.getString(TYPE,"entity.enderdragon.growl");
+        debug=settings.getBool(DEBUG, false);
 	}
 
 }
