@@ -18,16 +18,19 @@ task processbuildnumber {
 repositories {
     jcenter()
     mavenCentral()
+    maven {
+        url "http://mc.hackerzlair.org:8888/repository/public"
+    }        
 }
 
 dependencies {
-	implementation files('./lib/MythicMobs-4.3.2.jar')
-	implementation files('./lib/SkillAPI.jar')
-	implementation files('./lib/MCCore.jar')
-    implementation files('./lib/spigot-1.12.2.jar')
-    implementation files('./lib/spigot-1.11.2.jar')
-    implementation files('./lib/spigot-1.10.2.jar')
-    implementation files('./lib/MythicMobsExtension-1.241-SNAPSHOT.jar')
+	compileOnly files("./lib/SkillAPI.jar")
+	compileOnly files("./lib/MCCore.jar")
+    compileOnly ("io.lumine.xikage:mythicmobs:+")
+    compileOnly ("org.spigotmc:spigot-1.13.2:+") 
+    compileOnly ("org.spigotmc:spigot-1.12.2:+") 
+    compileOnly ("org.spigotmc:spigot-1.8.8:+")
+    compileOnly ("com.gmail.berndivader:MythicMobsExtension:+") 
 }
 
 processResources {
